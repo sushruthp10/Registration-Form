@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="form.css" />
+    <title>Registration-Form</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="form">
+            <form id="user-form">
+
+                <table class="table1">
+                    <tr>
+                        <td colspan="2">
+                            <h1>REGISTRATION FORM</h1>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="name">NAME:</label>
+                        </th>
+                        <td>
+                            <input required type="text" name="name" id="name" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="email">EMAIL-ID:</label>
+                        </th>
+                        <td>
+                            <input required type="email" name="email" id="email" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="password">PASSWORD:</label>
+                        </th>
+                        <td>
+                            <input required type="password" name="password" id="password" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <label for="dob">DOB:</label>
+                        </th>
+                        <td>
+                            <input required type="date" name="dob" id="dob" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th colspan="2">
+                            <input style="width: 20px" type="checkbox" name="acceptTerms" id="acceptTerms" />
+                            <label for="acceptTerms">Accept terms & Conditions</label>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="2">
+                            <input class="submitbtn" type="submit" value="Submit" />
+                        </th>
+                    </tr>
+
+                </table>
+
+            </form>
+
+        </div>
+    </div>
+    <div id="entrytbale"></div>
+    <script src="./form.js">
+        const email1 = document.getElementById('email');
+        email1.addEventListener('input', () => validate(email1));
+        function validate(element) {
+            if (element.validity.typeMismatch) {
+                element.setCustomValidity("Enter Email-ID of valid format.");
+                element.reportValidity();
+            }
+            else {
+                element.setCustomValidity("");
+            }
+        }
+    </script>
+</body>
+
+</html>
